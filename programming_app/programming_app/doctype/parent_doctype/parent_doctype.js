@@ -96,48 +96,64 @@ frappe.ui.form.on("Parent DocType", {
 
 
     // ##########  Dialog  ##################
-    refresh(frm) {
-        if(frm.is_new()) {
-            let dialogBox = new frappe.ui.Dialog({
-                title: "Enter Parent DocType details: ",
-                fields: [
-                    {
-                        label : "First Name",
-                        fieldname : "first_name",
-                        fieldtype : "Data"
-                    },
-                    {
-                        label : "Last Name",
-                        fieldname : "last_name",
-                        fieldtype : "Data"
-                    },
-                    {
-                        label : "Age",
-                        fieldname : "age",
-                        fieldtype : "Data"  // field type must be data field (int field not showing)
-                    }
-                ],
-                primary_action_lebel : "Submit",
-                primary_action(values) {
-                    frm.set_value("first_name", values.first_name),
-                    frm.set_value("last_name", values.last_name),
-                    frm.set_value("age", values.age),
+    // refresh(frm) {
+    //     if(frm.is_new()) {
+    //         let dialogBox = new frappe.ui.Dialog({
+    //             title: "Enter Parent DocType details: ",
+    //             fields: [
+    //                 {
+    //                     label : "First Name",
+    //                     fieldname : "first_name",
+    //                     fieldtype : "Data"
+    //                 },
+    //                 {
+    //                     label : "Last Name",
+    //                     fieldname : "last_name",
+    //                     fieldtype : "Data"
+    //                 },
+    //                 {
+    //                     label : "Age",
+    //                     fieldname : "age",
+    //                     fieldtype : "Data"  // field type must be data field (int field not showing)
+    //                 }
+    //             ],
+    //             primary_action_lebel : "Submit",
+    //             primary_action(values) {
+    //                 frm.set_value("first_name", values.first_name),
+    //                 frm.set_value("last_name", values.last_name),
+    //                 frm.set_value("age", values.age),
 
-                    dialogBox.hide()    // after action => hide dialogBox
-                },
-            })
+    //                 dialogBox.hide()    // after action => hide dialogBox
+    //             },
+    //         })
 
-            dialogBox.show()    // if doc new => showing dialogBox
+    //         dialogBox.show()    // if doc new => showing dialogBox
         
-        }   // if is_new()
+    //     }   // if is_new()
 
-    }   // refresh event
+    // }   // refresh event
 
 
     // frm.is_dirty() : True/False : Check if form values has been changed and is not saved yet.
 
 
 
+    // ##########  Add Custom Button  ##################
+    refresh(frm) {
 
+        // single button
+        frm.add_custom_button("Click me", () => {
+            frappe.msgprint("Button was clicked!")
+        })
+
+        // dropdown button
+        frm.add_custom_button("click 1", () => {
+            frappe.msgprint("You click dropdown button 1");
+        },"Dropdown Button")
+
+        frm.add_custom_button("click 2", () => {
+            frappe.msgprint("You click dropdown button 2")
+        }, "Dropdown Button")
+    }
 
 });
