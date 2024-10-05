@@ -67,7 +67,7 @@ frappe.ui.form.on("Parent DocType", {
 
     // ##########  FORM API  ##################
 
-    // frm.is_new() : Check if the form is new and is not saved yet.
+    // frm.is_new() : True/False : Check if the form is new and is not saved yet.
 
 
     // frm.set_intro("msg*", "color") : Set intro text on the top of the form. The function takes two parameters: message (string, required) and color (string, optional). 
@@ -92,7 +92,52 @@ frappe.ui.form.on("Parent DocType", {
 
         // frm.set_value("field_name", "data")
         frm.set_value("full_name", frm.doc.first_name + " " + frm.doc.last_name)
-    }
+    },
+
+
+    // ##########  Dialog  ##################
+    refresh(frm) {
+        if(frm.is_new()) {
+            let dialogBox = new frappe.ui.Dialog({
+                title: "Enter Parent DocType details: ",
+                fields: [
+                    {
+                        label : "First Name",
+                        fieldname : "first_name",
+                        fieldtype : "Data"
+                    },
+                    {
+                        label : "Last Name",
+                        fieldname : "last_name",
+                        fieldtype : "Data"
+                    },
+                    {
+                        label : "Age",
+                        fieldname : "age",
+                        fieldtype : "Data"  // field type must be data field (int field not showing)
+                    }
+                ],
+                primary_action_lebel : "Submit",
+                primary_action(values) {
+                    frm.set_value("first_name", values.first_name),
+                    frm.set_value("last_name", values.last_name),
+                    frm.set_value("age", values.age),
+
+                    dialogBox.hide()    // after action => hide dialogBox
+                },
+            })
+
+            dialogBox.show()    // if doc new => showing dialogBox
+        
+        }   // if is_new()
+
+    }   // refresh event
+
+
+    // frm.is_dirty() : True/False : Check if form values has been changed and is not saved yet.
+
+
+
 
 
 });
