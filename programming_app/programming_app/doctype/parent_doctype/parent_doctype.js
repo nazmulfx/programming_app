@@ -86,6 +86,13 @@ frappe.ui.form.on("Parent DocType", {
 
 
     // ##########  Set Value : field  ##################
+    validate(frm) {
+
+        // frm.doc.full_name = frm.doc.first_name + " " + frm.doc.last_name
+
+        // frm.set_value("field_name", "data")
+        frm.set_value("full_name", frm.doc.first_name + " " + frm.doc.last_name)
+    }
 
 
 });
