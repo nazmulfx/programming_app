@@ -139,21 +139,51 @@ frappe.ui.form.on("Parent DocType", {
 
 
     // ##########  Add Custom Button  ##################
-    refresh(frm) {
+    // refresh(frm) {
 
-        // single button
-        frm.add_custom_button("Click me", () => {
-            frappe.msgprint("Button was clicked!")
+    //     // single button
+    //     frm.add_custom_button("Click me", () => {
+    //         frappe.msgprint("Button was clicked!")
+    //     })
+
+    //     // dropdown button
+    //     frm.add_custom_button("click 1", () => {
+    //         frappe.msgprint("You click dropdown button 1");
+    //     },"Dropdown Button")
+
+    //     frm.add_custom_button("click 2", () => {
+    //         frappe.msgprint("You click dropdown button 2")
+    //     }, "Dropdown Button")
+    // }
+
+
+
+    // ##########  frm.trigger  ##################
+    // Trigger any form event explicitly.
+
+    // refresh(frm) {
+    //     frm.trigger("print_func")
+    // },
+
+    // print_func(frm) {
+    //     frappe.msgprint("print function triggered")
+    // }
+
+
+
+    // ##########  frm.add_child   ##################
+    // Add a row with values to a Table field.
+
+    // enable is a check field : when checked/unchecked ,child data will be refresh with these values
+    enable(frm) {
+        let row = frm.add_child("date_and_value", {
+            date : frappe.datetime.get_today(),
+            value_1 : 10,
+            value_2 : 20,
         })
-
-        // dropdown button
-        frm.add_custom_button("click 1", () => {
-            frappe.msgprint("You click dropdown button 1");
-        },"Dropdown Button")
-
-        frm.add_custom_button("click 2", () => {
-            frappe.msgprint("You click dropdown button 2")
-        }, "Dropdown Button")
+        frm.refresh_field("date_and_value")
     }
+
+    
 
 });

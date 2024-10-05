@@ -1,0 +1,109 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-10-05 16:52:17.632781",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "child_doctype_name",
+  "parent_doctype",
+  "parent_full_name",
+  "parent_age",
+  "column_break_juit",
+  "parent_present_address",
+  "parent_permanent_address",
+  "section_break_mgnu",
+  "parent_date_and_values",
+  "list_all_parent_docs_section",
+  "fetch_all_parent_docs",
+  "parent_list"
+ ],
+ "fields": [
+  {
+   "fieldname": "child_doctype_name",
+   "fieldtype": "Data",
+   "label": "Child DocType Name"
+  },
+  {
+   "fieldname": "parent_doctype",
+   "fieldtype": "Link",
+   "label": "Parent DocType",
+   "options": "Parent DocType"
+  },
+  {
+   "fieldname": "parent_full_name",
+   "fieldtype": "Data",
+   "label": "Parent Full Name"
+  },
+  {
+   "fieldname": "parent_age",
+   "fieldtype": "Int",
+   "label": "Parent Age"
+  },
+  {
+   "fieldname": "column_break_juit",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "parent_present_address",
+   "fieldtype": "Small Text",
+   "label": "Parent Present Address"
+  },
+  {
+   "fieldname": "parent_permanent_address",
+   "fieldtype": "Small Text",
+   "label": "Parent Permanent Address"
+  },
+  {
+   "fieldname": "section_break_mgnu",
+   "fieldtype": "Section Break",
+   "label": "Table"
+  },
+  {
+   "fieldname": "parent_date_and_values",
+   "fieldtype": "Table",
+   "label": "Parent Date and Values",
+   "options": "Child Child Table"
+  },
+  {
+   "fieldname": "list_all_parent_docs_section",
+   "fieldtype": "Section Break",
+   "label": "List All Parent Docs"
+  },
+  {
+   "fieldname": "parent_list",
+   "fieldtype": "Table",
+   "label": "Parent List",
+   "options": "Child Child Table Parent List"
+  },
+  {
+   "fieldname": "fetch_all_parent_docs",
+   "fieldtype": "Button",
+   "label": "Fetch All Parent Docs"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-05 22:21:08.989224",
+ "modified_by": "Administrator",
+ "module": "Programming App",
+ "name": "Child DocType for ServerCript",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

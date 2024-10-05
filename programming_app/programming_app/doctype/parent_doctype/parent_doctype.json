@@ -125,7 +125,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-10-05 09:51:23.628547",
+ "modified": "2024-10-05 16:53:43.727131",
  "modified_by": "Administrator",
  "module": "Programming App",
  "name": "Parent DocType",
@@ -145,8 +145,10 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "full_name",
  "track_changes": 1
 }
